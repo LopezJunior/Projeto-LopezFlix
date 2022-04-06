@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Netflix</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<div>
+</div>
+<nav role="navigation">
+  <div id="menuToggle">
+    <input type="checkbox" />
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <ul id="menu">
+      <a><img class="imagenMenu" src="https://i.pinimg.com/474x/b6/77/cd/b677cd1cde292f261166533d6fe75872.jpg">
+        <li>Mauricio Lopez</li>
+      </a>
+      <a>
+        <li>
+          <h3 style="font-size: 12px; margin: 0px;">Trocar de perfil</h3>
+        </li>
+      </a>
+      <a>
+        <li>
+          <h3 style="font-size: 12px; margin: 0px;">Editar perfil</h3>
+        </li>
+      </a>
+      <a>
+        <li>
+          <h3 style="font-size: 12px; margin: 0px;">Sair da Netflix</h3>
+        </li>
+      </a>
+      <a>
+        <li>
+          <h3 style="font-size: 12px; margin: 0px;">(Não deu tempo de fazer funcional XD)</h3>
+        </li>
+      </a>
+    </ul>
+  </div>
+</nav>
+
+<div class="div2">
+
+  <%- include("./partials/header.ejs")  %>
+
+  <div>
+    <h4 class="titleSecond">LOPEZFLIX</h4>
+    <p class="subSecond">Original</p>
+    <h1 class="titulo"> Borat </h1>
+
+    <p class="descricao">Libertado da prisão pelo governo do Cazaquistão, o comediante Borat<br /> arrisca a sua vida ao
+      retornar aos Estados Unidos com sua filha de 15 anos.<br /> Desta vez, ele revela mais sobre a cultura
+      norte-americana e fala sobre eleições e pandemia por Covid-19.</p>
+    <div>
+      <div class="botoes">
+        <button role="button" class="botao">
+          <i class="fas fa-play"></i>
+          ASSISTIR AGORA
+        </button>
+        <button role="button" class="botao">
+          <i class="fas fa-info-circle"></i>
+          MAIS INFORMAÇÕES
+        </button>
+      </div>
+    </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <h3>Minha Lista</h3>
+    <div class="div3, wrapper">
+      <section id="section1">
+        <% FILMES.forEach(element => { %>
+        <span class="item">
+
+          <span class="cardTop">
+            <a href="/editar/<%= element.id %> "><img class="icon"
+                src="data:image/png;base64,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"></a>
+            <a href="/deletar/<%= element.id %> "><img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8AAABERET8/PwMDAyrq6vFxcXm5ubc3NyRkZGmpqYqKipUVFS4uLhubm7V1dW+vr5hYWHx8fGampo3NzeKioouLi5JSUmxsbH39/d8fHwhISFOTk6Dg4MlJSV6enoVFRU9PT00NDRjY2NycnLY2NjDvgQeAAAEM0lEQVR4nO3d63KiQBAFYC4qahQQRMWImpi8/ysuiZuqXVuwBw/OmDrnVyqFVH8FzkwjqOf3k8Hr6j3YzRZxfDhURVFM8r+ZDuuc/5zU/98ePuLFbBe8rV57qsTrY6frSZKVnmHKaBP3oexBWI1DU91Pss0SXg5cWGRdeeeM9uCCwMIguc9XpyywJWGF287n579JBsiaoMIC4aszRo44SOEEBPS8CEgECk8wYD3e4MrCCd/vHET/zxRWF044QgI9L0DVBRMusEAvQRUGE36Chd4JVBhKOEMDYYMNSjiHC0PQOxEk3Bu3ErcDGk5BwhgP9MaY0kBC/ElaZwUpDSSMrhQ42s6Ct+VyuRd5WZ4TBMF6tlicPqr8Wk+yhZSGEb7LniJam+0il8IhpDaM8MqSdGG6D3kUMZM+RljJQ2hlH9eCEU5FdXPjfezFPkpIJ4wRbkR1eYdSRCBdIkYoJ4vKfCey+4JclOrrGBqOpF+RQ80RUdtN4Wq3iL+uWueTfPqV4Xc235l/J01TOR2O5qbZyGOYKl52uFO4G/Ww4MQmumFsFxaQq4N9p33ebBXKKcrNtF6aaxMunT9Df9I2+7YJU9uF69PSLbcI++hq+0pLt9wiPNgu2yAt3XKLUE7j7iZs7palsIrG5zzRSVoPp+eaIzlzSCHu8xUbKX+9MKOQQudDIYXuh0IK3Q+FFLofCs/C8HmjEu6Dp45C+NtC4fOHwucPhc8fjXDgbkDCse2lWHNiCimk0HoopJBC+6GQQgrth0IKKbQfCimk0H4opJBC+3mYsEwuIl4SXm6RiGelsptbWBSK7z84Xm4hnwcVX9cjnihYuyx8uS0U93wIoeKbKCikkEIKKaSQQgoppJBCCimkkEIKKaSQQgoppJBCCimkkEIKKaSQQgoppJBCCimkkEIKKaSQQgoppJBCCimkkEIKKaSQQgoppJBC94SnXy9U/K4yhRRSSCGFFFJI4TnyR88ppJBCCimkkEIKHyicUUjhOSMKKaSQQgopvJnUWWG4ppDCzsLjbSHiu6AfJ8zSi4jBqbzcIhVXYaPLLW6vhx8ntJVQ/kh1J+HcNqQx4RuFFFJoO+ESI9zYhjSmXFGoEw5tQxpT7jHCqW1IY8pXjDC3DWlMecQIRRfgTDJF9RphZRvSGNmxdBOebEMak4CEx9K2pCk5SKi4FGUpivZQJ/ywLWmI5m2oE/qOnqYFTujmnK+ZDbXCVWZbcy2acUYrdHJZkymWbHrhwMGDONGVrhT6sW2PiGa2NxE610KFisbJTKi4X+GhUTzxZCrcK35S8nFRTYWGQn/lEFE5yhgK/cGnbdhPtgZVmwj9gRufYGSKZ/I6Cus1uAMr1FQ303cU+kfbs0akuB3xLqHvLzcW1zeJyTuwq7CeN6qRFeR4qrj1AiKsc9wdinw6fFjySRUrrm9fyx8ijK5RarUBFAAAAABJRU5ErkJggg=="></a>
+          </span>
+          <span>
+            <a href="/details/<%= element.id %> "><img class="image" src=' <%= element.img %>'></a>
+            <div class="name"><%= element.nome %> </div>
+          </span>
+        </span>
+        <% }) %>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  body {
+    background: url('https://i.pinimg.com/originals/90/aa/3a/90aa3a0208c1d4f8c1c5baac94ff31b4.gif') no-repeat top;
+    background-size: 100% 85%;
+    width: 100%;
+    font-family: Andale Mono, monospace;
+    color: white;
+    background-color: #000000;
+  }
+</style>
+</body>
+
+</html>

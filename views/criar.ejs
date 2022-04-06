@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>criar</title>
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <h1 id="title" >Criar Novo Filme</h1>
+
+<main class="formContainer">
+
+    <form action="/criar" method="post">
+        <legend>Criar Filmes</legend>
+
+        <fieldset>
+        <input type="text" name="nome">
+        <label for="nome">nome</label>
+        </fieldset>
+
+        <fieldset>
+        <input type="text" name="ano">
+        <label for="ano">ano</label>
+        </fieldset>
+
+        <fieldset>
+        <input type="url" name="img">
+        <label for="img">img</label>
+        </fieldset>
+
+        <fieldset>
+        <input type="text" name="diretores">
+        <label for="diretores">diretores</label>
+        </fieldset>
+
+        <fieldset>
+        <input type="text" name="iframe">
+        <label for="iframe">iframe</label>
+        </fieldset>
+
+        <fieldset>
+        <input type="text" name="descricao">
+        <label for="descricao"> descrição</label>
+        </fieldset>
+        
+
+        <div class="buttonSubmit">
+        <button class="submit" type="submit"> Enviar </button>
+        </div>
+
+    </form>
+
+</main>
+</body>
+</html>
+
